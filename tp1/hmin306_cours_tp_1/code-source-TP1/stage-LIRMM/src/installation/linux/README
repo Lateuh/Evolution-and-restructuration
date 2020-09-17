@@ -1,0 +1,7 @@
+Développer par Sylvain LECLER, Esteban LEBARON et Florent LECOULTRE
+
+pour installer. Tapez dans un terminal depuis le dossier contenant ce fichier :
+sudo bash init.sh
+
+pour desinstaller. Tapez dans un terminal depuis le dossier contenant ce fichier : 
+sudo bash uninstall.sh

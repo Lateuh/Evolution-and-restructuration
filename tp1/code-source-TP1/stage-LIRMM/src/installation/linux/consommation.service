@@ -1,0 +1,20 @@
+[Unit]
+Description=Capte la consommation de votre ordinateur
+#After=network-online.target
+ 
+[Service]
+Type=simple
+ 
+User=root
+Group=florent
+UMask=077
+ 
+ExecStart=/usr/bin/joule
+ 
+Restart=on-failure
+ 
+# Configures the time to wait before service is stopped forcefully.
+TimeoutStopSec=300
+ 
+[Install]
+WantedBy=multi-user.target
