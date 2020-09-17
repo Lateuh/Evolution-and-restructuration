@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 import spoon.Launcher;
 import spoon.MavenLauncher;
@@ -65,6 +66,10 @@ public class SpoonMain {
 		 * for(CtMethod method : methodList) {
 			System.out.println("method: " + method.getSimpleName());
 		}*/
+		
+		
+		
+		
 		System.out.println("Il y a "+ methodList.size()+ " méthodes dans le projet");
 		
 		
@@ -89,6 +94,7 @@ public class SpoonMain {
 		System.out.println("Il y a " + ( (float)methodList.toString().split("\n").length / (float)methodList.size() ) + " lignes de code par méthode dans le projet");
 		
 		
+		
 		int nbAtt = 0;
 		for(CtClass classs : classList) {
 			nbAtt += classs.getFields().size();
@@ -102,6 +108,62 @@ public class SpoonMain {
 		Collections.sort(classListSorted, new SortByNbMethod());
 		System.out.println("Liste des classes avec le plus grand nombre de méthodes par ordre décroissant : ");
 		for (int i=0; i < (0.1*classListSorted.size()); i++) System.out.println((i+1) + " : " + classListSorted.get(i).getSimpleName() + " avec " + classListSorted.get(i).getMethods().size() + " méthodes"); 
+		
+
+
+		ArrayList<CtClass> classListSorted2 = new ArrayList<CtClass>(classList);	
+		Collections.sort(classListSorted2, new SortByNbAtt());
+		System.out.println("Liste des classes avec le plus grand nombre d'attributs par ordre décroissant : ");
+		for (int i=0; i < (0.1*classListSorted2.size()); i++) System.out.println((i+1) + " : " + classListSorted2.get(i).getSimpleName() + " avec " + classListSorted2.get(i).getFields().size() + " attributs");
+	
+		
+		
+		
+		System.out.println("Dans les classements précédents on peut retrouver des classes en commun, les voici :");
+		for(int i = 0;i<(0.1*classListSorted.size());i++) {
+			for(int j = 0;j<(0.1*classListSorted2.size());j++) {
+				if(classListSorted.get(i).getSimpleName().equals(classListSorted2.get(j).getSimpleName())) {
+					System.out.println(classListSorted.get(i).getSimpleName());
+				}
+			}
+		}
+		
+		
+		
+		System.out.println("Les classes qui ont strictement plus de X méthodes.");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Que vaut X ?");
+		String nbM = sc.nextLine();
+		System.out.println("Ok, voici les classes qui ont strictement plus de "+ nbM + " méthodes :");
+		int i = 1;
+		for(CtClass classs : classListSorted) {
+			if(classs.getMethods().size() > Integer.parseInt(nbM)) {System.out.println(i + " : " + classs.getSimpleName() + " avec " + classs.getMethods().size() + " méthodes."); i++;}
+		}
+		
+		
+		
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		String methode = "";
+		int nbParamMax = 0;
+		for(CtMethod m : methodList) {
+			if(m.getParameters().size() > nbParamMax) {
+				nbParamMax = m.getParameters().size();
+				methode = m.getSimpleName();
+			}
+		}
+		System.out.println("Il y a " + nbParamMax + " paramètres dans la méthode " + methode);
 		
 		
 		
