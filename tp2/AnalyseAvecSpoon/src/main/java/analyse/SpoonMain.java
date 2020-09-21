@@ -1,10 +1,7 @@
 package analyse;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.Map.Entry;
 
 import spoon.Launcher;
 import spoon.MavenLauncher;
@@ -142,8 +139,49 @@ public class SpoonMain {
 		
 		
 		
+		
+		
+		
+		
+		
+		
 
 
+		 for(CtClass c : classList) {
+
+	            System.out.println(c.getSimpleName()+" class");
+
+	            HashMap<String, Integer> mapMethods = new HashMap<String, Integer>();
+
+	            Set<CtMethod> methodSet = c.getMethods();
+
+	            for(CtMethod m : methodSet) {
+	                int loc = m.toString().split("\n").length;
+	                mapMethods.put(m.getSimpleName(), loc);
+	            }
+	            
+	            
+	            List<Map.Entry<String, Integer>> mList = new LinkedList<Map.Entry<String,Integer>>(mapMethods.entrySet());
+
+	            System.out.println(mList.size()+ " methods");
+	            System.out.println("10% is : "+ (int)(mList.size() * 0.1));
+
+	            Collections.sort(mList, new Comparator<Map.Entry<String, Integer>>() {
+
+	                @Override
+	                public int compare(Entry<String, Integer> arg0, Entry<String, Integer> arg1) {
+	                    return arg0.getValue().compareTo(arg1.getValue());
+	                }
+
+	            });
+
+	            for(int k = 0 ; k < (int)(mList.size() * 0.1) ; k++) {
+	                    System.out.println("\t"+mList.get(i).getKey()+ " : " +mList.get(i).getValue() );
+	            }
+
+	            System.out.println("_____________");
+
+	        }
 		
 		
 		
@@ -151,8 +189,8 @@ public class SpoonMain {
 		
 		
 		
-		
-		
+		 
+		 
 		
 		
 		String methode = "";

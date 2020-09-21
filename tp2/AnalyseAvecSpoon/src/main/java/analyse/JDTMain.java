@@ -48,11 +48,11 @@ public class JDTMain {
 			
 		});
 		
-		//System.out.println(cu.getParent());
-		//System.out.println(cu.getRoot());
-		//System.out.println(cu.getTypeRoot());
+		System.out.println(cu.getParent());
+		System.out.println(cu.getRoot());
+		System.out.println(cu.getTypeRoot());
 		
-		//cu.getAST().newMethodDeclaration();
+		cu.getAST().newMethodDeclaration();
 		
 		
 		

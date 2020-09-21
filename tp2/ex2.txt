@@ -1,0 +1,105 @@
+HMIN306 - EVOLUTION ET RESTRUCTURATION
+
+Reponse ex 2 : 
+
+Nombre de classes de l’application : 75
+
+
+
+Nombre de lignes de code de l’application : 2959
+
+
+
+Nombre total de méthodes de l’application : 248
+
+
+
+Nombre total de packages de l’application : 40
+
+
+
+Nombre moyen de méthodes par classe : 3.3066666
+
+
+
+Nombre moyen de lignes de code par méthode : 4.060484
+
+
+
+Nombre moyen d’attributs par classe : 2.24
+
+
+
+Les 10% des classes qui possèdent le plus grand nombre de méthodes : 
+1 : CollectionEntity avec 22 méthodes
+2 : BodyFormInputPanel avec 15 méthodes
+3 : CollectionStructureFolderEntity avec 11 méthodes
+4 : CollectionBodyEntity avec 10 méthodes
+5 : BodyRawTypeModel avec 10 méthodes
+6 : HeadersFormInputPanel avec 9 méthodes
+7 : CollectionHeaderEntity avec 8 méthodes
+8 : UrlParser avec 8 méthodes
+
+
+
+Les 10% des classes qui possèdent le plus grand nombre d’attributs : 
+1 : CollectionEntity avec 11 attributs
+2 : SocketIoPanel avec 11 attributs
+3 : RestPanel avec 8 attributs
+4 : RequestApiButton avec 7 attributs
+5 : BodyFormInputPanel avec 7 attributs
+6 : BodyPanel avec 7 attributs
+7 : ResponseBodyPanel avec 7 attributs
+8 : ServerSentEventPanel avec 7 attributs
+
+
+
+Les classes qui font partie en même temps des deux catégories précédentes : 
+CollectionEntity
+BodyFormInputPanel
+
+
+
+Les classes qui possèdent plus de X méthodes (la valeur de X est donnée) : 
+Avec X qui vaut 7 :
+1 : CollectionEntity avec 22 méthodes.
+2 : BodyFormInputPanel avec 15 méthodes.
+3 : CollectionStructureFolderEntity avec 11 méthodes.
+4 : CollectionBodyEntity avec 10 méthodes.
+5 : BodyRawTypeModel avec 10 méthodes.
+6 : HeadersFormInputPanel avec 9 méthodes.
+7 : CollectionHeaderEntity avec 8 méthodes.
+8 : UrlParser avec 8 méthodes.
+
+
+
+Les 10% des méthodes qui possèdent le plus grand nombre de lignes de code (par classe) : (beaucoup de classes ont moins de 10 méthodes donc 10% donne 0 si on ne prend pas l'entier supérieur)
+CollectionBodyEntity class
+10 methods
+10% is : 1
+	getId : 3
+
+CollectionEntity class
+22 methods
+10% is : 2
+	getMethod : 3
+	getMethod : 3
+
+CollectionStructureFolderEntity class
+11 methods
+10% is : 1
+	RootFolder : 3
+
+BodyRawTypeModel class
+10 methods
+10% is : 1
+	HTML : 3
+
+BodyFormInputPanel class
+15 methods
+10% is : 1
+	getValueField : 3
+
+
+
+Le nombre maximal de paramètres par rapport à toutes les méthodes de l’application : 7 dans getTreeCellRendererComponent 
