@@ -114,7 +114,7 @@ public class RequestApiButton extends JButton {
                     requestBuilder.put(requestBody);
                 } else if (requestTypeRequestModel.getName().equals(RequestTypeModel.DELETE().getName())) {
                     // DELETE
-                    if (!bodyRawValue.equals("") && !bodyRawValue.isEmpty()) {
+                    if (!bodyRawValue.isBlank() && !bodyRawValue.isEmpty()) {
                         requestBuilder.delete(requestBody);
                     } else {
                         requestBuilder.delete();
