@@ -1,7 +1,6 @@
 package com.supanadit.restsuite.entity;
 
 import javax.persistence.*;
-
 @Entity
 @Table(name = "collection_header")
 public class CollectionHeaderEntity {

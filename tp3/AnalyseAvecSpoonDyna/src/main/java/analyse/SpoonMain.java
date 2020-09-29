@@ -1,11 +1,17 @@
 package analyse;
 
 import java.util.List;
+import java.util.Set;
 
 import spoon.Launcher;
 import spoon.MavenLauncher;
 import spoon.compiler.Environment;
 import spoon.reflect.CtModel;
+import spoon.reflect.code.CtBlock;
+import spoon.reflect.code.CtCodeSnippetExpression;
+import spoon.reflect.code.CtInvocation;
+import spoon.reflect.code.CtStatement;
+import spoon.reflect.declaration.CtClass;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtType;
 import spoon.reflect.visitor.filter.TypeFilter;
@@ -47,11 +53,76 @@ public class SpoonMain {
 		launcher.run(); // creates model of project
 		CtModel model = launcher.getModel(); // returns the model of the project
 
-		// basic type filter to retrive all methods in your model
-		List<CtMethod> methodList = model.getElements(new TypeFilter<CtMethod>(CtMethod.class));
-		for(CtMethod method : methodList) {
-			System.out.println("method: " + method.getSimpleName());
+
+		
+		
+		
+		
+		
+//		List<CtClass> classList = model.getElements(new TypeFilter<CtClass>(CtClass.class));
+//
+//        for(CtClass cls : classList) {
+//            Set<CtMethod> methodesClasse = cls.getMethods();
+//            for(CtMethod md : methodesClasse) {
+//            	List<CtInvocation> invocList = md.getElements(new TypeFilter<CtInvocation>(CtInvocation.class));
+//                CtBlock mdBlock = md.getBody();
+//                System.out.println(mdBlock.toString()+"\n==================================================");
+//                
+//                //CtCodeSnippetExpression instruction =  launcher.getFactory().createCodeSnippetExpression("System.out.println("  GG   ");");
+//                CtStatement NewInstruction = launcher.getFactory().Code().createCodeSnippetStatement("analyse.Analyse.printMe(\""+cls.getSimpleName()+"\",\""+md.getSimpleName()+"\")");
+//                mdBlock.addStatement(0,NewInstruction);
+//                md.setBody(mdBlock);
+//
+//                CtBlock mdBlock2 = md.getBody();
+//                System.out.println(mdBlock2.toString()+"\n=================================================");
+//            }
+//        }
+        
+        
+        
+        
+		List<CtClass> classList = model.getElements(new TypeFilter<CtClass>(CtClass.class));
+		
+		for(CtClass cls : classList) {
+			Set<CtMethod> methodesClasse = cls.getMethods();
+			for(CtMethod md : methodesClasse) {
+				CtBlock mdBlock = md.getBody();
+				System.out.println(md.getSimpleName()+"================================");
+				
+				List < CtInvocation > refs = md.getElements(new TypeFilter < CtInvocation > (CtInvocation.class));
+				try {
+					for(CtInvocation inv : refs) {
+						Boolean cor = false;
+						for (CtClass cls2 : classList) {
+							if(cls2.getSimpleName().equals(inv.getTarget().getType().toString())) {
+	
+								
+								CtCodeSnippetExpression instruction =  launcher.getFactory().createCodeSnippetExpression("System.out.println(\"  GG   \");");
+								CtStatement NewInstruction = launcher.getFactory().Code().createCodeSnippetStatement("analyse.Analyse.printMe(\""+
+								inv.getTarget().getType().toString()+"\",\""+cls.getSimpleName()+"\")");
+								mdBlock.addStatement(0,NewInstruction);
+								md.setBody(mdBlock);
+								
+								CtBlock mdBlock2 = md.getBody();
+								System.out.println(mdBlock2.toString()+"\n=============");
+							}
+						}
+					}
+				}catch (Exception e) {
+					System.out.println("Null METHODE");
+				}
+			}
 		}
+        
+		
+		launcher.setSourceOutputDirectory("D:\\docs\\cours\\M2\\hmin306\\Evolution-and-restructuration\\tp3\\RestSuite_new");
+		launcher.prettyprint();
+		System.out.println("THE EEEEEENNNNNNNDDDDDD");
+		
+		
+
+		
+		
 		
 		
 	}

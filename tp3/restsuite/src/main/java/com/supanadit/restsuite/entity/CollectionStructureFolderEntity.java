@@ -1,16 +1,16 @@
 package com.supanadit.restsuite.entity;
 
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+import javax.persistence.*;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 @Entity
 @Table(name = "collection_structure_folder")
 public class CollectionStructureFolderEntity {
-    public final static String ROOT_FOLDER = "ROOT";
+    public static final String ROOT_FOLDER = "ROOT";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,6 @@ public class CollectionStructureFolderEntity {
     public static CollectionStructureFolderEntity RootFolder() {
         return new CollectionStructureFolderEntity(null, "Root");
     }
-
 
     public int getId() {
         return id;

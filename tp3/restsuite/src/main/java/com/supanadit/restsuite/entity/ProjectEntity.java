@@ -1,7 +1,6 @@
 package com.supanadit.restsuite.entity;
 
 import javax.persistence.*;
-
 @Entity
 @Table(name = "project")
 public class ProjectEntity {

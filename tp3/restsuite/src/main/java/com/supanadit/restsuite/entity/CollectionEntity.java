@@ -1,11 +1,10 @@
 package com.supanadit.restsuite.entity;
 
-import org.hibernate.annotations.Type;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.hibernate.annotations.Type;
+import javax.persistence.*;
+import org.hibernate.annotations.Type;
 @Entity
 @Table(name = "collection")
 public class CollectionEntity {
