@@ -1,0 +1,9 @@
+
+
+
+Oui il y'a des différences entre mon graphe de dépendance de l'analyse statique et celui de l'analyse dynamique, le premier possède beaucoup plus de noeuds et de relations. Ce graphe (statique) représente tous les appels possibles entre les classes du projet de l’application Restsuite, alors que le deuxième (dynamique) représente les envois de messages exécutés lors de 
+l'exécution du programme Restsuite, c’est donc un sous-graphe premier. 
+C’est parce qu’il peut exister des appels de méthode dans le code qui ne se feront jamais ou rarement lors de l'exécution. 
+Pour améliorer l’analyse dynamique, il faut essayer de passer par toutes les fonctionnalités possibles lors de l'exécution et d’essayer tous les cas possibles ou presque.
+
+
